@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>24/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -73,46 +73,91 @@
 <a name='L14'></a><a href='#L14'>14</a>
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
-<a name='L17'></a><a href='#L17'>17</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class defSet {
-  constructor() {
-    this.arrSet = ['theme', 'dark', 'light', 'gray', 'music', 'trance', 'pop', 'rock', 'chillout', 'off', 'difficulty', 'easy', 'difficulty', 'normal', 'difficulty', 'hard', 'difficulty', 'nightmare'];
-    this.set = new Map([['theme', 'dark'], ['music', 'trance'], ['difficulty', 'easy']]);
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">class Settings { // создаём класс
+  constructor(...option) { // опций может быть 0-3
+    option.forEach((item) =&gt; { // проверям какую именно опцию ввёл юзер
+      if (item === 'light' || item === 'dark' || item === 'grey') {
+        this.theme = item;
+      } else if (item === 'trance' || item === 'pop' || item === 'rock' || item === 'chillout' || item === 'off') {
+        this.music = item;
+      } else if (item === 'easy' || item === 'normal' || item === 'hard' || item === 'nightmare') {
+        this.difficulty = item;
+      }
+    });
   }
-&nbsp;
-  getUserSet(key, value) {
-    if (this.arrSet.includes(key) &amp;&amp; this.arrSet.includes(value)) {
-      this.set.set(key, value);
-      return Array.from(this.set); // this.set.entries()
+ 
+  get getUserSet() {
+    const set = new Map([['theme', 'dark'], ['music', 'trance'], ['difficulty', 'easy']]); // создаём Мар с деф. настройками
+    if (this.theme) { // если опция существует, её ввёл юзер (не равна udefined)
+      set.set('theme', this.theme); // если нет, то будет дефолтная опция
     }
-    return 'Wrong data!';
+    if (this.music) { // тоже самое
+      set.set('music', this.music);
+    }
+    if (this.difficulty) { // тоже самое
+      set.set('difficulty', this.difficulty);
+    }
+    return Array.from(set); // возвращаем массив для теста
   }
 }
-&nbsp;
-export default defSet;
-&nbsp;</pre></td></tr></table></pre>
+ 
+const inst = new Settings('hard'); // строки для отладки в браузере
+console.log(inst.getUserSet);
+ 
+export default Settings;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jul 23 2020 21:51:19 GMT+0300 (Москва, стандартное время)
+                at Thu Jul 30 2020 22:01:26 GMT+0300 (Москва, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>
